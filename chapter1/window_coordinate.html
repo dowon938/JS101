@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: cadetblue;
+            /* overflow: hidden; */
+        }
+        div{
+            width: 150px;
+            height: 150px;
+            background-color: antiquewhite;
+            margin: 10px;
+        }
+        .special{
+            background-color: burlywood;
+        }
+        aside{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <aside>
+        <button class="scroll-by">Scroll by 100px(y)</button>
+        <button class="scroll-to">Scroll to 100px(y)</button>
+        <button class="scroll-into">Scroll into special</button>
+    </aside>
+    <script>
+        const special = document.querySelector('.special');
+        special.addEventListener('click',(e)=>{
+                // console.log(e);
+                console.log(special.getBoundingClientRect());
+                console.log(`client:${e.clientX},${e.clientY}`);
+                console.log(`page:${e.pageX},${e.pageY}`);
+            });
+        const scrollBy = document.querySelector('.scroll-by');
+        const scrollTo = document.querySelector('.scroll-to');
+        const scrollInto = document.querySelector('.scroll-into');
+
+        scrollBy.addEventListener('click',()=>{
+            window.scrollBy({left: 0,top: 100,behavior: 'smooth'});
+        });
+        scrollTo.addEventListener('click',()=>{
+            window.scrollTo({left: 0,top: 100,behavior: 'smooth'});
+        });
+        scrollInto.addEventListener('click',()=>{
+            special.scrollIntoView({block: "center", behavior: "smooth"});
+        });
+    </script>
+</body>
+</html>

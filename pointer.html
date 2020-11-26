@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+        }
+        .tag{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(14px,10px);
+            width: fit-content;
+            height: fit-content;
+            color: wheat;
+        }
+        .hr{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: wheat;
+            opacity: .3;
+        }
+        .vt{
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background-color: wheat;
+            opacity: .3;
+        }
+        .target{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 60px;
+            height: 60px;
+            opacity: .8;
+        }
+    </style>
+</head>
+<body>
+    <img src="img/target.png" class="target">
+    <div class="tag"></div>
+    <div class="hr"></div>
+    <div class="vt"></div>
+    <script>
+        const tag = document.querySelector('.tag');
+        const hr = document.querySelector('.hr');
+        const vt = document.querySelector('.vt');
+        const target = document.querySelector('.target');
+        // const all = document.querySelector('.tag,.hr,.vt,.target');
+
+        document.addEventListener('mousemove', (e)=>{
+            const x = e.clientX;
+            const y = e.clientY;
+            tag.innerHTML = `Client X/Y: ${x}px, ${y}px`;
+            tag.style.left = `${x}px`;
+            tag.style.top = `${y}px`;
+            vt.style.left = `${x}px`;
+            hr.style.top = `${y}px`;
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
+            // all.style.left = `${x}px`;
+            // all.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
