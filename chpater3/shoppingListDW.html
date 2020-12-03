@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        header,footer{
+            position: fixed;
+            text-align: center;
+            line-height: 50px;
+            color: khaki;
+            width: 100%;
+            height: 50px;
+            background-color: darkcyan;
+        }
+        header{
+            top: 0;
+        }
+        footer{
+            bottom: 0;
+        }
+        .inputContainer{
+            position: fixed;
+            display: flex;
+            bottom:50px;
+            width: 100%;
+            height: 30px;
+        }
+        #name{
+            width: 100%;
+        }
+        #reset{
+            width: 30px;
+        }
+        .listContainer{
+            display: flex;
+            position: absolute;
+            z-index: -1;
+            margin: 50px 0px;
+            background-color: khaki;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+        }
+        .list{
+            display: flex;
+            width: 100%;
+            margin: 5px;
+            height: 80px;
+            background-color: olivedrab;
+            align-items: center;
+        }
+        .list div{
+            color: midnightblue;
+            line-height: 60px;
+            width: 100%;
+            height: 80px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+        .list button{
+            width: 60px;
+            height: 60px;
+            margin: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">Shopping List</header>
+    <div class="listContainer">
+
+    </div>
+    <div class="inputContainer">
+        <input type="text" id="name">
+        <input type="reset" value="+" id="reset">
+    </div>
+    <footer class="footer"></footer>
+    <dialog>hi
+    </dialog>
+    <script>
+        const list = document.querySelector('.listContainer');
+        const name = document.querySelector('#name');
+        const reset = document.querySelector('#reset');
+        const div = document.createElement('div');
+        const btn = document.createElement('button');
+
+        reset.addEventListener('click',()=>{
+            const names = name.value;
+            console.log(names);
+            div.setAttribute('id',`${names}`)
+            div.textContent = names;
+            list.appendChild(div);
+            div.appendChild(btn);
+            // list.innerHTML = `
+            // <div class = 'list'>
+            //     <div class='${name.value}'>${name.value}</div>
+            //     <button class='remove'>
+            // </div>
+            // `;
+            name.value = '';
+            const remove = document.querySelector('.remove');
+
+            remove.addEventListener('click',(e)=>{
+                console.log(e);
+                e.parentNode.remove();
+            });
+        });
+        
+    </script>
+</body>
+</html>

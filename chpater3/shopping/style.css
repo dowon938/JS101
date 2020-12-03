@@ -1,0 +1,116 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: floralwhite;
+}
+.appContainer{
+    position: absolute;
+    background-color: crimson;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 30px;
+    display: flex;
+    flex-flow: column;
+    box-shadow: 4px 4px 20px gray;
+}
+/* header */
+.header-title{
+    text-align: center;
+    color: floralwhite;
+    font-size: 32px;
+    line-height: 48px;
+    margin: 0;
+    padding: 0 0 8px 0;
+}
+/* scroll style */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+border-radius: 3px;
+background-color: lightgray;
+}
+::-webkit-scrollbar-button {
+width: 0;
+height: 0;
+}
+/* item display */
+
+.display-item{
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    background-color: floralwhite;
+}
+.item{
+    position: relative;
+    height: 80px;
+    margin: 8px;
+    border-radius: 18px;
+    background-color: tomato;
+    color: floralwhite;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+}
+.item label{
+    cursor: pointer;
+}
+.item-check{
+    display: none;
+}
+.check, .circle{
+    margin: 0 12px 0 20px;
+    cursor: pointer;
+}
+.check{
+    display: none;
+}
+.item-check:checked ~ label{
+    text-decoration-line: line-through;
+    opacity: .6;
+}
+.item-check:checked ~ .check{
+    display: inline;
+}
+.item-check:checked ~ .circle{
+    display: none;
+}
+
+.item-delete{
+    color: floralwhite;
+    position: absolute;
+    right: 28px;
+}
+.item-delete i {
+    cursor: pointer;
+}
+.input{
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+#input-text{
+    border-style: none;
+    outline-style: none;
+    height: 30px;
+    font-size: 18px;
+    padding: 4px 8px;
+    background-color: moccasin;
+}
+.input-create{
+    height: 60px;
+    color: floralwhite;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+.input-create i {
+    cursor: pointer;
+}
