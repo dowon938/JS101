@@ -1,7 +1,8 @@
-body{
-    margin: 0;
+*{
     box-sizing: border-box;
-    background-color: floralwhite;
+}
+body{
+    background: linear-gradient(340deg, rgba(225,238,195,1) 28%, rgba(240,80,83,.9) 100%);
 }
 .appContainer{
     position: absolute;
@@ -13,14 +14,14 @@ body{
     border-radius: 30px;
     display: flex;
     flex-flow: column;
-    box-shadow: 4px 4px 20px gray;
+    box-shadow: 4px 4px 20px rgb(0, 0, 0, 0.4);
 }
 /* header */
 .header-title{
     text-align: center;
     color: floralwhite;
     font-size: 32px;
-    line-height: 48px;
+    line-height: 64px;
     margin: 0;
     padding: 0 0 8px 0;
 }
@@ -41,10 +42,12 @@ height: 0;
 }
 /* item display */
 
-.display-item{
+.items{
+    padding: 0;
+    margin: 0;
     height: 500px;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
     background-color: floralwhite;
 }
 .item{
@@ -73,13 +76,17 @@ height: 0;
 }
 .item-check:checked ~ label{
     text-decoration-line: line-through;
-    opacity: .6;
+    opacity: .7;
 }
 .item-check:checked ~ .check{
     display: inline;
+    opacity: .7;
 }
 .item-check:checked ~ .circle{
     display: none;
+}
+.item-check:checked ~ .item-delete{
+    opacity: .7;
 }
 
 .item-delete{
@@ -89,28 +96,38 @@ height: 0;
 }
 .item-delete i {
     cursor: pointer;
+    transition: all 150ms ease-in-out;
 }
-.input{
+.item-delete i:hover {
+    transform: scale(1.2);
+    color: brown;
+}
+.footer{
     bottom: 0;
     width: 100%;
     display: flex;
     flex-flow: column;
+    justify-content: start;
 }
-#input-text{
-    border-style: none;
-    outline-style: none;
+#footer-input{
+    border: none;
+    outline: none;
     height: 30px;
     font-size: 18px;
     padding: 4px 8px;
     background-color: moccasin;
 }
-.input-create{
-    height: 60px;
+.footer-btn{
     color: floralwhite;
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 50px;
+    padding: 10px;
     text-align: center;
 }
-.input-create i {
+.footer-btn i {
     cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+.footer-btn i:hover {
+    color: rgb(110, 9, 9);
+    transform: scale(1.1);
 }
