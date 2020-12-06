@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+}
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+/* interface */
+.carrotsNumber{
+    position: absolute;
+    top: 35vh;
+    left: 50vw;
+    width: 10vw;
+    height: 10vw;
+    background-color: burlywood;
+    font-size: 5vw;
+    font-weight: 700;
+    text-align: center;
+    line-height: 11.5vw;
+    border-radius: 50%;
+    color: cornsilk;
+    border: 1vw solid cornsilk;
+    transform: translate(-50%, -50%);
+}
+
+
+/* field & carrots & bugs */
+.field{
+    width : 94vw;
+    /* background: rgb(131, 45, 211, .5); */
+    top: 50vh;
+    height: 40vh;
+    z-index: 1;
+    position: fixed;
+}
+
+.carrot,
+.bug{
+    position: absolute;
+    width: 8vw;
+}
+.bug{
+    z-index: 1;
+    width: 6vw;
+}
+
+/* pop-up */
+.replay,.victory {
+    position: absolute;
+    background-color: rgb(7, 7, 7, .7);
+    width: 40vw;
+    height: 40vh;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 8vh;
+    justify-content: center;
+    display: none;
+}
+.replay__icon{
+    color: cornsilk;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 8vh;
+}
+.replay__icon i {
+    font-size: 12vh;
+    padding-top: 8vh;
+    padding-bottom: 4vh;
+}
+.victory__icon{
+    color: cornsilk;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: 8vh;
+}
+.victory__icon i {
+    font-size: 12vh;
+    padding-top: 8vh;
+    padding-bottom: 4vh;
+}
