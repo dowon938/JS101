@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    box-sizing: border-box;
 }
 
 .background{
@@ -9,39 +10,20 @@
     z-index: -1;
 }
 /* interface */
-.interfaces {
-    display: flex;
-    position: absolute;
-    top: 10vh;
-    left: 50vw;
-    flex-flow: column;
-}
 .play_btn,.stop_btn{
-    width: 8vw;
-    height: 8vw;
-    background-color: burlywood;
-    font-size: 5vw;
-    font-weight: 700;
+    position: absolute;
     text-align: center;
-    line-height: 7.5vw;
+    line-height: 5.8vw;
+    top:10vh;
+    left: 50vw;
+    width: 7vw;
+    height: 7vw;
+    background-color: burlywood;
+    font-size: 4vw;
+    font-weight: 700;
     border-radius: 20%;
     color: cornsilk;
-    border: 1vw solid cornsilk;
-    transform: translate(-50%, -50%);
-}
-
-.timer {
-    margin: 3vh 0;
-    width: 20vw;
-    height: 8vw;
-    background-color: rgb(40, 39, 58);
-    font-size: 6vw;
-    font-weight: 700;
-    text-align: center;
-    line-height: 7.5vw;
-    border-radius: 5vh;
-    color: gold;
-    border: 1vw dashed lightslategrey;
+    border: .5vw solid cornsilk;
     transform: translate(-50%, -50%);
 }
 
@@ -49,17 +31,38 @@
     display: none;
 }
 
-.carrotsNumber{
-    width: 8vw;
+.timer {
+    position: absolute;
+    text-align: center;
+    line-height: 6.2vw;
+    top:22vh;
+    left: 50vw;
+    margin: 3vh 0;
+    width: 18vw;
     height: 8vw;
+    background-color: rgb(40, 39, 58);
+    font-size: 6vw;
+    font-weight: 700;
+    border-radius: 4vh;
+    color: gold;
+    border: .6vw dashed lightslategrey;
+    transform: translate(-50%, -50%);
+}
+
+.carrotsNumber{
+    position: absolute;
+    text-align: center;
+    line-height: 6vw;
+    top:40vh;
+    left: 50vw;
+    width: 7.8vw;
+    height: 7.8vw;
     background-color: coral;
     font-size: 5vw;
     font-weight: 700;
-    text-align: center;
-    line-height: 7.5vw;
     border-radius: 50%;
     color: cornsilk;
-    border: 1vw solid cornsilk;
+    border: .5vw solid cornsilk;
     transform: translate(-50%, -50%);
 }
 

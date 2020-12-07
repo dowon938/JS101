@@ -1,25 +1,48 @@
 'use strict';
 const playBtn = document.querySelector('.play_btn');
+const stopBtn = document.querySelector('.stop_btn');
 const field = document.querySelector('.field');
 
+//play BTN!!
 playBtn.addEventListener('click',()=>{
+    timeStart = setInterval(refreshTime, 1000);
     field.innerHTML= '';
     createImg('bug',15);
     createImg('carrot',20);
     refreshCarrotsNums();
-})
+    playBtn.style.display = 'none';
+    stopBtn.style.display = 'block';
+    replay.style.display = 'none';
+    victory.style.display = 'none';
+});
+
+//stop BTN!!
+stopBtn.addEventListener('click',()=>{
+    clearInterval(timeStart);
+    //can't click bugs & carrots
+    stopBtn.style.display = 'none';
+    playBtn.style.display = 'none';
+    replay.style.display = 'flex';
+});
 
 //timer!
+var timeStart;
 const timer = document.querySelector('.timer');
 let time = 10;
-const timerInterval = setInterval(() => {
-    timer.innerHTML=`${time}`;
+
+function refreshTime() {
     time--;
+    let minutes = Math.floor(time/60);
+    let seconds = time%60;
+    if (seconds<10) { 
+        seconds = '0'+seconds
+    };
+    timer.innerHTML=`${minutes}:${seconds}`;
     if (time<0) {
-        clearInterval(timerInterval);
+        clearInterval(timeStart);
         replay.style.display = 'flex';
-    }
-}, 1000);  
+    };
+};
 
 const carrotsNumber = document.querySelector('.carrotsNumber');
 const popUp = document.querySelector('.pop-up');
@@ -40,10 +63,17 @@ field.addEventListener('click', (event)=>{
 
 //pop-up menu
 
-popUp.addEventListener('click',(event)=>{
-    if (event.target.className == 'replay'){
-        event.target.remove();
-    }
+replay.addEventListener('click',(event)=>{
+    time=11;
+    timeStart = setInterval(refreshTime, 1000);
+    field.innerHTML= '';
+    createImg('bug',15);
+    createImg('carrot',20);
+    refreshCarrotsNums();
+    playBtn.style.display = 'none';
+    stopBtn.style.display = 'block';
+    replay.style.display = 'none';
+    victory.style.display = 'none';
 });
 
 //create Bugs & carrots
