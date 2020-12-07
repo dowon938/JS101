@@ -9,17 +9,37 @@
     z-index: -1;
 }
 /* interface */
-.carrotsNumber{
+.play_btn,.stop_btn{
     position: absolute;
-    top: 35vh;
+    top: 10vh;
     left: 50vw;
-    width: 10vw;
-    height: 10vw;
+    width: 8vw;
+    height: 8vw;
     background-color: burlywood;
     font-size: 5vw;
     font-weight: 700;
     text-align: center;
-    line-height: 11.5vw;
+    line-height: 7.5vw;
+    border-radius: 20%;
+    color: cornsilk;
+    border: 1vw solid cornsilk;
+    transform: translate(-50%, -50%);
+}
+.stop_btn{
+    display: none;
+}
+
+.carrotsNumber{
+    position: absolute;
+    top: 40vh;
+    left: 50vw;
+    width: 8vw;
+    height: 8vw;
+    background-color: coral;
+    font-size: 5vw;
+    font-weight: 700;
+    text-align: center;
+    line-height: 7.5vw;
     border-radius: 50%;
     color: cornsilk;
     border: 1vw solid cornsilk;
@@ -40,11 +60,11 @@
 .carrot,
 .bug{
     position: absolute;
-    width: 8vw;
+    width: 10vw;
 }
 .bug{
     z-index: 1;
-    width: 6vw;
+    width: 8vw;
 }
 
 /* pop-up */
@@ -66,7 +86,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-size: 8vh;
+    font-size: 7vh;
 }
 .replay__icon i {
     font-size: 12vh;
@@ -78,7 +98,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-size: 8vh;
+    font-size: 7vh;
 }
 .victory__icon i {
     font-size: 12vh;
