@@ -9,7 +9,17 @@ playBtn.addEventListener('click',()=>{
     refreshCarrotsNums();
 })
 
-
+//timer!
+const timer = document.querySelector('.timer');
+let time = 10;
+const timerInterval = setInterval(() => {
+    timer.innerHTML=`${time}`;
+    time--;
+    if (time<0) {
+        clearInterval(timerInterval);
+        replay.style.display = 'flex';
+    }
+}, 1000);  
 
 const carrotsNumber = document.querySelector('.carrotsNumber');
 const popUp = document.querySelector('.pop-up');

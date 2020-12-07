@@ -9,10 +9,14 @@
     z-index: -1;
 }
 /* interface */
-.play_btn,.stop_btn{
+.interfaces {
+    display: flex;
     position: absolute;
     top: 10vh;
     left: 50vw;
+    flex-flow: column;
+}
+.play_btn,.stop_btn{
     width: 8vw;
     height: 8vw;
     background-color: burlywood;
@@ -25,14 +29,27 @@
     border: 1vw solid cornsilk;
     transform: translate(-50%, -50%);
 }
+
+.timer {
+    margin: 3vh 0;
+    width: 20vw;
+    height: 8vw;
+    background-color: rgb(40, 39, 58);
+    font-size: 6vw;
+    font-weight: 700;
+    text-align: center;
+    line-height: 7.5vw;
+    border-radius: 5vh;
+    color: gold;
+    border: 1vw dashed lightslategrey;
+    transform: translate(-50%, -50%);
+}
+
 .stop_btn{
     display: none;
 }
 
 .carrotsNumber{
-    position: absolute;
-    top: 40vh;
-    left: 50vw;
     width: 8vw;
     height: 8vw;
     background-color: coral;
@@ -81,6 +98,7 @@
     justify-content: center;
     display: none;
 }
+
 .replay__icon{
     color: cornsilk;
     display: flex;
