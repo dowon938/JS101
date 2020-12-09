@@ -3,6 +3,14 @@ const playBtn = document.querySelector('.play_btn');
 const stopBtn = document.querySelector('.stop_btn');
 const field = document.querySelector('.field');
 
+
+function stopClick() {
+const bugs = document.querySelector('.bugs');
+const carrots = document.querySelector('.carrots');
+bugs.style.pointerEvents = 'none';
+carrots.style.pointerEvents = 'none';
+}
+
 //play BTN!!
 playBtn.addEventListener('click',()=>{
     timeStart = setInterval(refreshTime, 1000);
@@ -23,6 +31,7 @@ stopBtn.addEventListener('click',()=>{
     stopBtn.style.display = 'none';
     playBtn.style.display = 'none';
     replay.style.display = 'flex';
+    stopClick();
 });
 
 //timer!
@@ -38,8 +47,9 @@ function refreshTime() {
         seconds = '0'+seconds
     };
     timer.innerHTML=`${minutes}:${seconds}`;
-    if (time<0) {
+    if (time<1) {
         clearInterval(timeStart);
+        stopClick();
         replay.style.display = 'flex';
     };
 };
@@ -53,6 +63,8 @@ const replay = document.querySelector('.replay');
 field.addEventListener('click', (event)=>{
     if (event.target.className == 'bug') {
         console.log('bug!');
+        clearInterval(timeStart);
+        stopClick();
         replay.style.display = 'flex';
     } else if (event.target.className == 'carrot'){
         event.target.remove();
@@ -62,18 +74,21 @@ field.addEventListener('click', (event)=>{
 });
 
 //pop-up menu
-
-replay.addEventListener('click',(event)=>{
-    time=11;
-    timeStart = setInterval(refreshTime, 1000);
-    field.innerHTML= '';
-    createImg('bug',15);
-    createImg('carrot',20);
-    refreshCarrotsNums();
-    playBtn.style.display = 'none';
-    stopBtn.style.display = 'block';
-    replay.style.display = 'none';
-    victory.style.display = 'none';
+//replay BTN!
+popUp.addEventListener('click',(event)=>{
+    if (event.target.id === 'replay') {
+        timer.innerHTML=`0:10`;
+        time=10;
+        timeStart = setInterval(refreshTime, 1000);
+        field.innerHTML= '';
+        createImg('bug',15);
+        createImg('carrot',20);
+        refreshCarrotsNums();
+        playBtn.style.display = 'none';
+        stopBtn.style.display = 'block';
+        replay.style.display = 'none';
+        victory.style.display = 'none';
+    }
 });
 
 //create Bugs & carrots
@@ -104,6 +119,9 @@ function refreshCarrotsNums() {
     const carrotsNumbers = document.querySelectorAll('.carrot');
     carrotsNumber.textContent = `${carrotsNumbers.length}`;
     if (carrotsNumbers.length === 0){
+        clearInterval(timeStart);
+        stopClick();
+        stopBtn.style.display = 'none';
         victory.style.display = 'flex';
     };
 };

@@ -10,7 +10,8 @@
     z-index: -1;
 }
 /* interface */
-.play_btn,.stop_btn{
+.play_btn,
+.stop_btn{
     position: absolute;
     text-align: center;
     line-height: 5.8vw;
@@ -25,8 +26,13 @@
     color: cornsilk;
     border: .5vw solid cornsilk;
     transform: translate(-50%, -50%);
+    transition: 150ms all ease-in;
+    cursor: pointer;
 }
-
+.play_btn:hover,
+.stop_btn:hover{
+    transform: translate(-50%, -50%) scale(1.1);
+}
 .stop_btn{
     display: none;
 }
@@ -81,14 +87,20 @@
 .bug{
     position: absolute;
     width: 10vw;
+    transition: 150ms all ease-in;
+}
+.carrot:hover,
+.bug:hover{
+    transform: scale(1.1);
 }
 .bug{
     z-index: 1;
-    width: 8vw;
+    width: 7vw;
 }
 
 /* pop-up */
-.replay,.victory {
+.replay,
+.victory {
     position: absolute;
     background-color: rgb(7, 7, 7, .7);
     width: 40vw;
@@ -101,7 +113,6 @@
     justify-content: center;
     display: none;
 }
-
 .replay__icon{
     color: cornsilk;
     display: flex;
@@ -113,16 +124,31 @@
     font-size: 12vh;
     padding-top: 8vh;
     padding-bottom: 4vh;
+    cursor: pointer;
+    transition: 150ms all ease-in;
 }
 .victory__icon{
     color: cornsilk;
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-size: 7vh;
+    font-size: 6vh;
 }
 .victory__icon i {
-    font-size: 12vh;
-    padding-top: 8vh;
-    padding-bottom: 4vh;
+    font-size: 14vh;
+    transition: 150ms all ease-in;
+}
+.victory__icon div {
+    margin-top: 2vh;
+    font-size: 4vh;
+    line-height: 4vh;
+    background-color: coral;
+    padding: 2vh;
+    border-radius: 2vh;
+    transition: 150ms all ease-in;
+    cursor: pointer;
+}
+.victory__icon div:hover,
+.replay__icon i:hover{
+    transform: scale(1.1);
 }
