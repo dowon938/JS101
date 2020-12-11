@@ -1,12 +1,12 @@
 'use strict';
 
-const CARROT_COUNT = 2;
 const BUG_COUNT = 10;
+const CARROT_COUNT = 2;
+const CARROT_SIZE = 80;
 const GAME_DURATION_SEC = 10;
 
 const field = document.querySelector('.game__field');
 const fieldRect = field.getBoundingClientRect();
-const CARROT_SIZE = 80;
 const gameBTN = document.querySelector('.game__button');
 const gameTimer = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
