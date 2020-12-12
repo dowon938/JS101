@@ -1,7 +1,6 @@
 'use strict';
-
-import Field from './field.js';
 import * as sound from './sound.js';
+import Field, { ItemType } from './field.js';
 
 
 export const Reason = Object.freeze({
@@ -10,7 +9,7 @@ export const Reason = Object.freeze({
   lose : 'lose',
 });
 
-export default class GameBuilder {
+export class GameBuilder {
   withGameDuration(duration){
     this.gameDuration = duration;
     return this;
@@ -53,25 +52,24 @@ class Game {
   }
 
   onItemClick = (item) => {
-    console.log(!this.started);
     if (!this.started){
       return;
     }
-    if (item === 'carrot') {
+    if (item === ItemType.carrot) {
         this.score++;
         this.updateScoreBoard();
         if(this.score===this.carrotCount){
-            this.finish(true);
+            this.finish(Reason.win);
         }
-    } else if (item === 'bug') {
-        this.finish(false);
+    } else if (item === ItemType.bug) {
+        this.finish(Reason.lose);
     }
   };
 
 
   onclick = ()=>{
     if (this.started) {
-      this.stop();
+      this.finish(Reason.cancel);
     } else {
       this.start();
     }
@@ -86,26 +84,12 @@ class Game {
     this.started = true;
   };
 
-  stop(){
-    this.started = false;
-    sound.stopBackground();
-    sound.playAlert();
-    this.stopGameTimer();
-    this.hideGameBtn();
-    this.onGameStop && this.onGameStop(Reason.cancel);
-  };
-
-  finish(win){
+  finish(reason){
     this.started = false;
     sound.stopBackground();
     this.stopGameTimer();
     this.hideGameBtn();
-    this.onGameStop && this.onGameStop(win ?  Reason.win : Reason.lose );
-    if (win){
-        sound.playGameWin();
-    } else {
-        sound.playBug();
-    }
+    this.onGameStop && this.onGameStop(reason);
   };
 
   showStopBtn(){
@@ -134,7 +118,7 @@ class Game {
     this.timer = setInterval(()=>{
         if (remainingTimeSec<1) {
             clearInterval(this.timer);
-            this.finish(false);
+            this.finish(Reason.lose);
             return;
         };
         this.updateTimerText(--remainingTimeSec);

@@ -2,7 +2,10 @@
 
 import * as sound from './sound.js';
 
-
+export const ItemType = Object.freeze({
+  carrot : 'carrot',
+  bug : 'bug',
+});
 //Builder Pattern;
 export default class Field {
   constructor(bugCount, carrotCount) {
@@ -46,9 +49,9 @@ export default class Field {
     if (target.matches('.carrot')) {
         sound.playCarrot();
         target.remove();
-        this.onItemClick && this.onItemClick('carrot');
+        this.onItemClick && this.onItemClick(ItemType.carrot);
     } else if (target.matches('.bug')) {
-        this.onItemClick && this.onItemClick('bug');
+        this.onItemClick && this.onItemClick(ItemType.bug);
     }
   }
 }
